@@ -1,56 +1,116 @@
-# React + TypeScript + Vite
+# Blog Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, full-stack blog platform built with React, TypeScript, and Supabase. Features user authentication, post creation, and a clean, responsive UI.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Authentication** - Sign up, sign in, and secure user sessions
+- **Post Management** - Create, read, and manage blog posts
+- **Modern UI** - Beautiful interface built with Tailwind CSS and shadcn/ui components
+- **Real-time Database** - Powered by Supabase for scalable data management
+- **Type Safety** - Full TypeScript support throughout the application
+- **State Management** - Redux Toolkit for predictable state updates
+- **Form Validation** - Robust forms with Zod schema validation
+- **Responsive Design** - Mobile-first approach with modern styling
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend**: React 19, TypeScript, Vite
+- **Styling**: Tailwind CSS, shadcn/ui components
+- **State Management**: Redux Toolkit
+- **Database**: Supabase (PostgreSQL)
+- **Authentication**: Supabase Auth
+- **Form Handling**: React Hook Form + Zod validation
+- **Routing**: React Router DOM
+- **Icons**: Lucide React
+- **Build Tool**: Vite with SWC
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (version 18 or higher)
+- npm or yarn
+- Supabase account
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <your-repo-url>
+   cd blog-website
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   Create a `.env.local` file in the root directory:
+
+   ```env
+   VITE_SUPABASE_URL=your_supabase_project_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
+
+4. **Set up Supabase database**
+   Run the SQL script located in `scripts/setup-database.sql` in your Supabase SQL editor to create the necessary tables and security policies.
+
+   - Go to your Supabase dashboard
+   - Navigate to the SQL Editor
+   - Copy and paste the contents of `scripts/setup-database.sql`
+   - Execute the script
+
+5. **Start the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+   The application will be available at `http://localhost:5173`
+
+## 📝 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint
+
+## 📁 Project Structure
+
+```
+src/
+├── components/ui/          # Reusable UI components (shadcn/ui)
+├── context/               # React contexts
+├── features/              # Feature-based modules
+│   ├── auth/             # Authentication pages and components
+│   └── post/             # Blog post features
+├── lib/                  # Utility functions and configurations
+├── providers/            # Context providers
+├── slices/               # Redux slices
+├── store/                # Redux store configuration
+└── types/                # TypeScript type definitions
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🔐 Authentication
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The application uses Supabase Auth for user management:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
-# blog-website
-# blog-website
+- Email/password authentication
+- Secure session management
+- User profiles with usernames
+
+## 📖 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
